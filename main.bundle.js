@@ -118,7 +118,7 @@ AppModule = __decorate([
 /***/ "../../../../../src/app/graph.editor/graph-editor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style = 'border-style: groove' id = 'editor'>\r\n    <div>Exemplos</div>\r\n    <li>\r\n        https://radokirov.com/graph-editor.js/<br>\r\n    </li>\r\n    <li>\r\n        http://bl.ocks.org/benzguo/4370043<br>\r\n    </li>\r\n    <li>\r\n        https://codepen.io/zarazum/pen/fjoqF\r\n    </li>\r\n</div>"
+module.exports = "<div style = 'border-style: groove'>\r\n    <div  id = 'editor'>\r\n    </div>\r\n    <button (click) = 'hello()'>Hello</button>\r\n</div>"
 
 /***/ }),
 
@@ -134,17 +134,64 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var GraphEditorComponent = (function () {
     function GraphEditorComponent() {
     }
+    GraphEditorComponent.prototype.ngAfterViewInit = function () {
+        this.graphEditor = new GraphEditor('#editor', {});
+    };
+    GraphEditorComponent.prototype.hello = function () {
+        console.log(this.buildAdjacencyMatrix());
+    };
+    /**
+     * Builds the adjacency matrix of the current graph.
+     */
+    GraphEditorComponent.prototype.buildAdjacencyMatrix = function () {
+        try {
+            var rawData = this.graphEditor.get_raw_data();
+            var nodeCount = rawData.nodes.length;
+            var adjacencyMatrix = [];
+            var counter = 0;
+            while (counter < nodeCount) {
+                var newLine = new Array(nodeCount);
+                adjacencyMatrix.push(newLine);
+                counter++;
+            }
+            for (var _i = 0, _a = rawData.edge_list; _i < _a.length; _i++) {
+                var edge = _a[_i];
+                var index1 = parseInt(edge.node1.label, null);
+                var index2 = parseInt(edge.node2.label, null);
+                var lowerIndex = Math.min(index1, index2);
+                var upperIndex = Math.max(index1, index2);
+                adjacencyMatrix[index1][index2] = true;
+                adjacencyMatrix[index2][index1] = true;
+            }
+            for (var _b = 0, adjacencyMatrix_1 = adjacencyMatrix; _b < adjacencyMatrix_1.length; _b++) {
+                var line = adjacencyMatrix_1[_b];
+                for (counter = 0; counter < nodeCount; counter++) {
+                    if (!line[counter]) {
+                        line[counter] = false;
+                    }
+                }
+            }
+            return adjacencyMatrix;
+        }
+        catch (exception) {
+            return null;
+        }
+    };
     return GraphEditorComponent;
 }());
 GraphEditorComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-graph-editor',
         template: __webpack_require__("../../../../../src/app/graph.editor/graph-editor.component.html")
-    })
+    }),
+    __metadata("design:paramtypes", [])
 ], GraphEditorComponent);
 
 //# sourceMappingURL=graph-editor.component.js.map

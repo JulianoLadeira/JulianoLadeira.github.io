@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.bordered {\n    border-style: groove\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.bordered {\n    border-style: groove\n}\n\ndiv.graph_editor_container{\n    margin: 10px;\n    padding: 20px;\n    border: 1px solid #aaa;\n    -moz-border-radius: 10px;\n    -webkit-border-radius: 10px;\n    overflow: auto;\n    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;\n}\n\ndiv#graph_editor_button_container{\n    position: relative;\n    overflow: auto;\n    width: 100%;\n    border: 1px solid #BEDCE7;\n    background: #EAF2F5;\n    margin-bottom: 10px;\n}\n\ndiv.graph_editor_button{\n    position: relative;\n    float: left;\n    cursor: pointer;\n    padding: 5px 5px;\n    /*text-shadow: 1px 1px white;*/\n}\n\n\ndiv.graph_editor_button:hover{\n    text-decoration: underline;\n}\n\ndiv.graph_editor_button_on{\n    background: #a33;\n}\n\ndiv.graph_editor_undo_disabled{\n    cursor: default;\n    color: #777;\n}\n\ndiv.slider{\n    width: 150px;\n}\n\ncanvas.graph_editor_canvas{\n    border: 1px solid #aaa;\n    float: left;\n    tabindex: 0;\n}\n\ndiv#graph_editor_tweaks{\n    overflow: auto;\n    padding: 0px 15px;\n}\ndiv h4{\n    padding: 0px;\n    margin: 12px 0px 0px 0px;\n}\n", ""]);
 
 // exports
 
