@@ -103,7 +103,7 @@ var GraphParsingException = (function () {
 /***/ "../../../../../src/app/.common-components/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'container'>\r\n    <nav>\r\n        <a>Navigation:</a>\r\n            <ul>\r\n                <button (click) = \"redirect('./')\">Introdução</button>\r\n                <br>\r\n                <button (click) = \"redirect('./fundaments')\">Fundamentos</button>\r\n                <br>\r\n                <button (click) = \"redirect('./motivation')\">Motivação</button>\r\n                <br>\r\n                <button (click) = \"redirect('./applications/graph-editor')\">Editor de Grafos</button>\r\n            </ul>\r\n    </nav>      \r\n<div>"
+module.exports = "<ul>\r\n    <li>\r\n        <a href=\"#\">Home</a>\r\n    </li>\r\n    <li>\r\n        <a href=\"#fundaments\">Fundamentos</a>\r\n    </li>\r\n    <li>\r\n        <a href=\"#motivation\">Motivação</a>\r\n    </li>\r\n    <li>\r\n        <a href=\"#applications/graph-editor\">Editor de Grafos</a>\r\n    </li>\r\n</ul>\r\n"
 
 /***/ }),
 
@@ -168,7 +168,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-header></app-header>\n\n<div>\n    <router-outlet></router-outlet>\n</div>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div class = \"row\">\n    <div class = \"col-12\">\n        <app-header></app-header>\n    </div>\n</div>\n\n<div class = \"row\">\n    <div class = \"col-2\"></div>\n    <div class = \"col-8\">\n        <router-outlet></router-outlet>\n    </div>\n    <div class = \"col-2\"></div>>  \n</div>"
 
 /***/ }),
 
@@ -393,7 +393,7 @@ ApplicationsRoutingModule = __decorate([
 /***/ "../../../../../src/app/applications/graph.editor/graph-editor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style = 'border-style: groove'>\r\n\r\n    Separar em tabs diferentes os dois métodos de entrada.\r\n\r\n    <div id = 'editor'>\r\n    </div>\r\n    <button (click) = 'buildAdjacencyMatrixFromGraphEditor()'>Construir matriz pelo grafo</button>\r\n    <br>\r\n    <br>\r\n    <input type=\"file\" id=\"input\"/>\r\n    <br>\r\n    <button (click) = 'parseInputFile()'>Fazer parse de arquivo</button>\r\n    <br>\r\n    <br>\r\n    <br>\r\n    <br>\r\n    <button (click) = 'printInputFile()'>Imprimir matriz no console</button>\r\n</div>"
+module.exports = "<div class = 'container-fluid'>\r\n\r\n    Separar em tabs diferentes os dois métodos de entrada.\r\n\r\n    <div id = 'editor'>\r\n    </div>\r\n    <button class = \"btn-primary\" (click) = 'buildAdjacencyMatrixFromGraphEditor()'>Construir matriz pelo grafo</button>\r\n    <br>\r\n    <br>\r\n    <input type=\"file\" id=\"input\"/>\r\n    <br>\r\n    <button (click) = 'parseInputFile()'>Fazer parse de arquivo</button>\r\n    <br>\r\n    <br>\r\n    <br>\r\n    <br>\r\n    <button (click) = 'printInputFile()'>Imprimir matriz no console</button>\r\n</div>"
 
 /***/ }),
 
@@ -644,7 +644,7 @@ var _a, _b;
 /***/ "../../../../../src/app/motivation/motivation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class='container'>\r\n    Adicionar motivação para o estudo da matéria\r\n</div>"
+module.exports = "<div>\r\n    Adicionar motivação para o estudo da matéria\r\n</div>"
 
 /***/ }),
 
